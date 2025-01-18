@@ -41,6 +41,7 @@ plt.xlabel("date")
 plt.ylabel("price")
 plt.grid(True)
 st.pyplot(fig)
+# yeha tak sahi ha
 
 training_data=pd.DataFrame(df['Close'][:int(len(df)*0.70)])
 testing_data=pd.DataFrame(df['Close'][int(len(df)*0.70):])
@@ -57,7 +58,7 @@ for i in range(100,data_training_array.shape[0]):
       ytrain.append(data_training_array[i,0])
 xtrain,ytrain=np.array(xtrain),np.array(ytrain)  
 
-model=load_model('stock.h5')
+model=load_model('stock.keras')
 
 last_100_days = training_data.tail(100)
 past_100_days=pd.DataFrame(testing_data[-100:0])
@@ -72,13 +73,11 @@ for i in range(100,input_data.shape[0]):
     ytest.append(input_data[i,0])
 xtest,ytest=np.array(xtest),np.array(ytest)
 
-xtest,ytest=np.array(xtest),np.array(ytest)
-
 ypred=model.predict(xtest)
 
 scaler=scaler.scale_
 
-scale_factor=1/scaler[0];
+scale_factor=1/scaler[0]
 ypred=ypred*scale_factor
 ytest=ytest*scale_factor
 
