@@ -57,7 +57,7 @@ for i in range(100,data_training_array.shape[0]):
       ytrain.append(data_training_array[i,0])
 xtrain,ytrain=np.array(xtrain),np.array(ytrain)  
 
-model=load_model('stock.h5')
+model=load_model('stock.keras')
 
 last_100_days = training_data.tail(100)
 past_100_days=pd.DataFrame(testing_data[-100:0])
@@ -78,7 +78,7 @@ ypred=model.predict(xtest)
 
 scaler=scaler.scale_
 
-scale_factor=1/scaler[0];
+scale_factor=1/scaler[0]
 ypred=ypred*scale_factor
 ytest=ytest*scale_factor
 
