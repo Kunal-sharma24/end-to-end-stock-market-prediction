@@ -6,3 +6,4 @@ pandas == 2.2.3
 yfinance == 0.2.52
 tensorflow == 2.18.0
 scikit-learn == 1.6.1
+pip == 24.3.1
